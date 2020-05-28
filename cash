@@ -1,0 +1,27 @@
+from cs50 import get_float
+s = get_float("Change Owed: ")
+if s < 0:
+    s = get_float("Change Owed: ")
+
+cents = s * 100
+
+#calculate remainder after quarters
+change = cents % 25
+#number of quarters used
+quarters = (cents - change) / 25
+print(f"{quarters}")
+#remainder after dimes
+change1 = change % 10
+#number of dimes
+dimes = (change - change1) / 10
+print(f"{dimes}")
+#nickels
+change2 = change1 % 5
+nickels = (change1 - change2) / 5
+print(f"{nickels}")
+#pennies
+pennies = change2
+print(f"{pennies}")
+#tally
+coins = quarters + dimes + nickels + pennies
+print(f"{int(coins)}")
