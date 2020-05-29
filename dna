@@ -18,3 +18,4 @@ def match(reader, result):
             return
 
     print("No Match")
+main()
