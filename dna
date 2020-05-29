@@ -1,0 +1,20 @@
+def maximum(s, sub):
+    ans = [0] * len(s)
+    for i in range(len(s) - len(sub), -1, -1): #for(int i = len(s); i > -1; i--)
+        if s[i: i + len(sub)] == sub:
+            if i + len(sub) >= len(s):
+                ans[i] = 1
+            else:
+                ans[i] = ans[i + len(sub)] + 1
+    return max(ans)
+
+
+def match(reader, result):
+    for line in reader:
+        person = line[0]
+        values = [int(val) for val in line[1:]]
+        if values == result:
+            print(person)
+            return
+
+    print("No Match")
